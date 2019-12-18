@@ -8,7 +8,8 @@ class AuthorTest < Minitest::Test
     @charlotte_bronte = Author.new({
       first_name: "Charlotte",
       last_name: "Bronte"
-      })
+    })
+
   end
 
   def test_it_exists
