@@ -18,4 +18,10 @@ class Library
     {start: start_year.publication_year, end: end_year.publication_year}
   end
 
+  def checkout(book)
+    if @books.include?(book)
+      return true
+    end
+    false
+  end
 end
