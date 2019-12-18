@@ -12,12 +12,16 @@ class Author
   end
 
   def write(title, publication_date)
-    book_info = {
+    book_info = book_info_hash(title, publication_date)
+    Book.new(book_info)
+  end
+
+  def book_info_hash(title, publication_date)
+    {
       author_first_name: @name.split[0],
       author_last_name: @name.split[1],
       title: title,
       publication_date: extract_year(publication_date)
-      }
-    Book.new(book_info)
+    }
   end
 end
