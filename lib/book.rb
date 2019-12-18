@@ -7,7 +7,7 @@ class Book
 
   def initialize(book_info)
     @title = book_info[:title]
-    @author = "#{book_info[:author_first_name]} #{book_info[:author_last_name]}"
+    @author = combine_names(book_info[:author_first_name], book_info[:author_last_name])
     @publication_year = extract_year(book_info[:publication_date])
   end
 end
