@@ -12,8 +12,9 @@ class Author
   end
 
   def write(title, publication_date)
-    book_info = book_info_hash(title, publication_date)
-    Book.new(book_info)
+    book = Book.new(book_info_hash(title, publication_date))
+    @books << book
+    book
   end
 
   def book_info_hash(title, publication_date)
