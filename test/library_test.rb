@@ -64,7 +64,7 @@ class LibraryTest < Minitest::Test
     assert_equal false, @dpl.checkout(@mockingbird)
     assert_equal false, @dpl.checkout(@jane_eyre)
 
-    @dpl.checkout(@jane_eyre)
+    @dpl.add_author(@charlotte_bronte)
     @dpl.add_author(@harper_lee)
 
     assert_equal true, @dpl.checkout(@jane_eyre)
