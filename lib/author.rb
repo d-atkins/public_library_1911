@@ -1,6 +1,9 @@
 require './lib/book'
+require './lib/changeable'
 
 class Author
+  include Changeable
+
   attr_reader :name, :books
 
   def initialize(author_info)
@@ -13,7 +16,7 @@ class Author
       author_first_name: @name.split[0],
       author_last_name: @name.split[1],
       title: title,
-      publication_date: publication_date[-4..-1]
+      publication_date: extract_year(publication_date)
       }
     Book.new(book_info)
   end
