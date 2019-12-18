@@ -27,4 +27,11 @@ class Library
     end
     false
   end
+
+  def return(book)
+    if book
+      @books << book
+      @checked_out_books.delete_at(@checked_out_books.index(book))
+    end
+  end
 end
