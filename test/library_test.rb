@@ -24,6 +24,7 @@ class LibraryTest < Minitest::Test
     assert_equal "Denver Public Library", @dpl.name
     assert_equal [], @dpl.books
     assert_equal [], @dpl.authors
+    assert_equal [], @dpl.checked_out_books
   end
 
   def test_it_can_add_authors
@@ -68,5 +69,17 @@ class LibraryTest < Minitest::Test
     @dpl.add_author(@harper_lee)
 
     assert_equal true, @dpl.checkout(@jane_eyre)
+  end
+
+  def test_it_can_track_checked_out_books
+    assert_equal [], @dpl.checked_out_books
+
+    @dpl.add_author(@charlotte_bronte)
+    @dpl.add_author(@harper_lee)
+    @dpl.checkout(@jane_eyre)
+
+    assert_equal [@jane_eyre], @dpl.checked_out_books
+
+    assert_equal false, @dpl.checkout(@jane_eyre)
   end
 end
